@@ -18,8 +18,8 @@ export default class ScanScreen extends React.Component {
       const {status} = await Permissions.askAsync(Permissions.CAMERA);
       
       this.setState({
-        /*status === "granted" is true when user has granted permission
-          status === "granted" is false when user has not granted the permission
+        /*status === "granted" es verdadero cuando el usuario ha dado permiso
+          status === "granted" es falso cuando el usuario no ha dado permiso
         */
         hasCameraPermissions: status === "granted",
         buttonState: 'clicked',
@@ -56,17 +56,17 @@ export default class ScanScreen extends React.Component {
               <Image
                 source={require("../assets/camera.jpg")}
                 style={{width:200, height: 200}}/>
-              <Text style={{textAlign: 'center', fontSize: 30}}>Bar Code Scanner</Text>
+              <Text style={{textAlign: 'center', fontSize: 30}}>Escáner de Código de Barras</Text>
             </View>
           <Text style={styles.displayText}>{
-            hasCameraPermissions===true ? this.state.scannedData: "Request Camera Permission"
+            hasCameraPermissions===true ? this.state.scannedData: "Solicitar Permiso para la Cámara"
           }</Text>     
 
           <TouchableOpacity
             onPress={this.getCameraPermissions}
             style= {styles.scanButton} 
-            title = "Bar Code Scanner">
-            <Text style={styles.buttonText}>Scan QR Code</Text>
+            title = "Escáner de Código de Barras">
+            <Text style={styles.buttonText}>Escanear Código QR</Text>
           </TouchableOpacity>
         </View>
         );
